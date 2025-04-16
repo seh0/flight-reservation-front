@@ -1,0 +1,64 @@
+{
+  "flights": [
+    {
+      "id": 1,
+      "flightDate": "2025-04-20",
+      "departure": "서울",
+      "arrival": "뉴욕",
+      "departureTime": "6:30",
+      "arrivalTime": "12:00",
+      "aircraftType": "대한항공",
+      "seatCount": 50,
+      "flightDuration": "5시간 30분",
+      "price": 120000
+    },
+    {
+      "id": 2,
+      "flightDate": "2025-04-21",
+      "departure": "서울",
+      "arrival": "파리",
+      "departureTime": "8:00",
+      "arrivalTime": "14:30",
+      "aircraftType": "아시아나항공",
+      "seatCount": 60,
+      "flightDuration": "12시간 30분",
+      "price": 150000
+    },
+    {
+      "id": 3,
+      "flightDate": "2025-04-22",
+      "departure": "서울",
+      "arrival": "런던",
+      "departureTime": "10:00",
+      "arrivalTime": "16:00",
+      "aircraftType": "KLM",
+      "seatCount": 45,
+      "flightDuration": "11시간",
+      "price": 140000
+    },
+    {
+      "id": 4,
+      "flightDate": "2025-04-23",
+      "departure": "서울",
+      "arrival": "로스앤젤레스",
+      "departureTime": "7:00",
+      "arrivalTime": "13:30",
+      "aircraftType": "델타항공",
+      "seatCount": 70,
+      "flightDuration": "10시간 30분",
+      "price": 135000
+    },
+    {
+      "id": 5,
+      "flightDate": "2025-04-24",
+      "departure": "서울",
+      "arrival": "도쿄",
+      "departureTime": "12:00",
+      "arrivalTime": "14:00",
+      "aircraftType": "일본항공",
+      "seatCount": 80,
+      "flightDuration": "2시간",
+      "price": 80000
+    }
+  ]
+}
