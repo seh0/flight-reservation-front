@@ -1,13 +1,26 @@
-import { useNavigate } from "react-router-dom"
+import SearchFlight from "../components/SearchFlight";
+import AdBanner from '../components/AdBanner';
+
+import '../style/Home.css';
+import QuickLink from "../components/QuickLink";
+import Hotplace from "../components/Hotplace";
 
 function Home() {
-
-    const navigate = useNavigate();
-
     return (
-        <div>
-            <h1>HOME</h1>
-            <button onClick={() => { navigate("/flight") }}>Fly</button>
+        <div className="home">
+            <div className="banner">
+                <img
+                    src="/images/img1.jpg"
+                    alt="Banner Image"
+                />
+            </div>
+
+            <div className="contents-box">
+                <SearchFlight />
+                <QuickLink />
+                <AdBanner />
+                <Hotplace />
+            </div>
         </div>
     )
 }

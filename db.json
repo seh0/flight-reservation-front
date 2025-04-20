@@ -60,5 +60,19 @@
       "flightDuration": "2시간",
       "price": 80000
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "user",
+      "password": "1234",
+      "name": "Test User"
+    },
+    {
+      "id": "f08c",
+      "username": "user1",
+      "password": "1234",
+      "name": "aaa"
+    }
   ]
 }

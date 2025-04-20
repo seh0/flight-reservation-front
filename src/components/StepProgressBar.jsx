@@ -1,5 +1,5 @@
 import React from 'react';
-import './StepProgressBar.css';
+import '../style/StepProgressBar.css';
 
 function StepProgressBar({ steps, currentStep }) {
   return (

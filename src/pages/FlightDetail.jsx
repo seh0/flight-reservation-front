@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import './FlightDetail.css';
+import '../style/FlightDetail.css';
 
 function FlightDetail() {
   const { id } = useParams();
@@ -35,34 +35,34 @@ function FlightDetail() {
       <div className="flight-content">
         <table className="flight-detail-table">
           <tbody>
-          <tr>
-          <th>항공사</th>
-          <td>{flight.aircraftType}</td>
-        </tr>
-        <tr>
-          <th>출발 날짜</th>
-          <td>{flight.flightDate}</td>
-        </tr>
-        <tr>
-          <th>출발지 / 도착지</th>
-          <td>{flight.departure} / {flight.arrival}</td>
-        </tr>
-        <tr>
-          <th>출발 시간 / 도착 시간</th>
-          <td>{flight.departureTime} / {flight.arrivalTime}</td>
-        </tr>
-        <tr>
-          <th>총 비행 시간</th>
-          <td>{flight.flightDuration}</td>
-        </tr>
-        <tr>
-          <th>총 좌석</th>
-          <td>{flight.seatCount}석</td>
-        </tr>
-        <tr>
-          <th>가격</th>
-          <td>{flight.price}원~</td>
-        </tr>
+            <tr>
+              <th>항공사</th>
+              <td>{flight.aircraftType}</td>
+            </tr>
+            <tr>
+              <th>출발 날짜</th>
+              <td>{flight.flightDate}</td>
+            </tr>
+            <tr>
+              <th>출발지 / 도착지</th>
+              <td>{flight.departure} / {flight.arrival}</td>
+            </tr>
+            <tr>
+              <th>출발 시간 / 도착 시간</th>
+              <td>{flight.departureTime} / {flight.arrivalTime}</td>
+            </tr>
+            <tr>
+              <th>총 비행 시간</th>
+              <td>{flight.flightDuration}</td>
+            </tr>
+            <tr>
+              <th>총 좌석</th>
+              <td>{flight.seatCount}석</td>
+            </tr>
+            <tr>
+              <th>가격</th>
+              <td>{flight.price}원~</td>
+            </tr>
           </tbody>
         </table>
       </div>

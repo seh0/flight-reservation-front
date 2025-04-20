@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './FlightList.css';
+import '../style/FlightList.css';
 
 function FlightList() {
   const [flights, setFlights] = useState([]);
@@ -45,7 +45,7 @@ function FlightList() {
               <p className="flight-duration">
                 <span>✈️</span>
                 {flight.flightDuration}
-              </p>  
+              </p>
             </div>
             <div className="time-info">
               <p className="time">{flight.arrivalTime}</p>
