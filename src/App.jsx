@@ -14,9 +14,10 @@ import Signup from "./pages/Signup";
 import MyPage from "./pages/Mypage";
 import Payment from "./pages/Payment";
 import RSVResult from "./pages/RSVResult";
+import RSVPayment from "./pages/RSVPayment";
 function App() {
   const location = useLocation();
-  const hideLayoutRoutes = ["/login", "/signup"];
+  const hideLayoutRoutes = ["/login", "/signup", "/payment"];
   const hideLayout = hideLayoutRoutes.includes(location.pathname);
 
 
@@ -30,12 +31,13 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/flight" element={<FlightPage />} />
           <Route path="/mypage" element={<MyPage />} />
+          <Route path="/payment" element={<Payment />} />
 
           <Route element={<ReservationLayout />}>
-            <Route path="/flight/:id" element={<FlightDetail />} />
+            <Route path="/flight/detail" element={<FlightDetail />} />
             <Route path="/rsv/seat" element={<SelectSeat />} />
             <Route path="/rsv/detail" element={<RSVDetail />} />
-            <Route path="/rsv/payment" element={<Payment />} />
+            <Route path="/rsv/payment" element={<RSVPayment />} />
             <Route path="/rsv/result" element={<RSVResult />} />
           </Route>
         </Routes>

@@ -1,27 +1,22 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import "../style/SearchFlight.css";
 
-const SearchFlight = ({ onSearch }) => {
+const SearchFlight = () => {
+  const navigate = useNavigate();
   const [tripType, setTripType] = useState("round");
   const [departure, setDeparture] = useState("");
   const [arrival, setArrival] = useState("");
   const [date, setDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
 
-  const navigate = useNavigate();
-
   const handleSearch = () => {
-    if (!departure || !arrival || !date) {
-      alert("모든 정보를 입력해주세요!");
+    if (!departure || !arrival) {
+      alert("출발 , 도착을 입력해라");
       return;
     }
-    if (tripType === "round" && !returnDate) {
-      alert("왕복일 경우 귀국 날짜도 입력해주세요.");
-      return;
-    }
-    // onSearch({ tripType, departure, arrival, date, returnDate });
-    navigate("/flight");
+    const searchData = { tripType, departure, arrival, date, returnDate };
+    navigate('/flight', { state: searchData });
   };
 
   const handleSwap = () => {

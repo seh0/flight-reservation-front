@@ -17,18 +17,35 @@
     margin: 10px 0;
 }
 
-.my-page button {
-    padding: 10px;
-    background-color: rgb(255, 85, 85);
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block;
-    margin: 20px auto;
+.reservation-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: white;
 }
 
-.my-page button:hover {
-    background-color: rgb(230, 30, 30);
+.reservation-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}   
+
+.reservation-card h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.reservation-card p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.reservation-card strong {
+    font-weight: bold;
 }

@@ -1,26 +1,24 @@
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function Payment() {
-    const navigate = useNavigate();
+    useEffect(() => {
+        window.opener?.focus(); // 부모 창 포커스
+    }, []);
 
-    const handleNext = () => {
-        navigate(`/rsv/result`);
-    };
-    const handleGoBack = () => {
-        navigate(-1);
+    const handleComplete = () => {
+        if (window.opener) {
+            window.opener.postMessage('payment-complete', '*');
+            window.close();
+        }
     };
 
     return (
-        <div>
-            <h1>
-                결제
-            </h1>
-            <p>결제</p>
-            <p>결제</p>
-            <p>결제</p>
-            <button onClick={handleNext}>다음단계</button>
-            <button onClick={handleGoBack}>뒤로가기</button>
+        <div style={{ padding: '20px' }}>
+            <h2>가상 결제창</h2>
+            <p>여기서 결제를 완료해주세요.</p>
+            <button onClick={handleComplete}>결제 완료</button>
         </div>
-    )
+    );
 }
-export default Payment
+
+export default Payment;
