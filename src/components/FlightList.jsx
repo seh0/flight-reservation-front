@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../style/FlightList.css';
 
-function FlightList({ filters, allFlights = [] }) {
+function FlightList({ filters, allFlights = [], onSelectedFlights }) {
     const [oneWayFlights, setOneWayFlights] = useState([]);
     const [roundTripFlights, setRoundTripFlights] = useState({ goList: [], backList: [] });
     const [selectedGoFlight, setSelectedGoFlight] = useState(null);  // 출발편 선택 상태
@@ -67,7 +67,23 @@ function FlightList({ filters, allFlights = [] }) {
             // 편도일 때는 하나의 항공편만 선택되어야 함
             setIsBookingEnabled(selectedGoFlight !== null);
         }
-    }, [selectedGoFlight, selectedBackFlight, filters]);
+
+        // 선택된 항공편을 부모 컴포넌트로 전달
+        if (filters?.tripType === "round") {
+            if (selectedGoFlight && selectedBackFlight) {
+                onSelectedFlights([roundTripFlights.goList.find(flight => flight.id === selectedGoFlight),
+                                    roundTripFlights.backList.find(flight => flight.id === selectedBackFlight)]);
+            } else {
+                onSelectedFlights([]);
+            }
+        } else {
+            if (selectedGoFlight) {
+                onSelectedFlights([oneWayFlights.find(flight => flight.id === selectedGoFlight)]);
+            } else {
+                onSelectedFlights([]);
+            }
+        }
+    }, [selectedGoFlight, selectedBackFlight, filters, roundTripFlights, oneWayFlights, onSelectedFlights]);
 
     const formatTime = (str) =>
         new Date(str).toLocaleTimeString("ko-KR", {
@@ -108,7 +124,7 @@ function FlightList({ filters, allFlights = [] }) {
     const renderFlightCard = (flight, idx, type) => (
         <div
             key={`${type}-${flight.id}-${idx}`}
-            className={`flight-card ${
+            className={`flight-card ${ 
                 (tripType === "round" && type === "go" && selectedGoFlight === flight.id) ||
                 (tripType === "round" && type === "back" && selectedBackFlight === flight.id) ||
                 (tripType === "oneway" && selectedGoFlight === flight.id)
