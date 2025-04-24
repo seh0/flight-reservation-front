@@ -27,7 +27,7 @@ const AirportWeather = () => {
     try {
       const today = new Date();
       const baseDate = today.toISOString().slice(0, 10).replace(/-/g, '');
-      const API_KEY = 'your_service_key';
+      const API_KEY = 'api_key';
       const url = `https://apis.data.go.kr/1360000/AirPortService/getAirPort?serviceKey=${API_KEY}&numOfRows=0&pageNo=0&dataType=JSON&base_date=${baseDate}&base_time=0600&airPortCd=${airPortCd}`;
       const response = await axios.get(url);
 

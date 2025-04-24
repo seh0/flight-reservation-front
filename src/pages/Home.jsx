@@ -6,6 +6,7 @@ import QuickLink from "../components/QuickLink";
 import Hotplace from "../components/Hotplace";
 import SimpleAirportMap from "../components/SimpleAirportMap";
 import AirportWeather from "../components/AirportWeather";
+import WeatherForecast from "../components/WeatherForcast";
 
 function Home() {
     return (
@@ -23,6 +24,7 @@ function Home() {
                 <SimpleAirportMap/>
                 <AdBanner />
                 <Hotplace />
+                <WeatherForecast />
                 <AirportWeather/>
             </div>
         </div>

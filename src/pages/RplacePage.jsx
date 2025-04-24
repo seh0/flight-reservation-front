@@ -27,7 +27,7 @@ const RplacePage = () => {
                 // API 호출
                 const response = await axios.get('https://apis.data.go.kr/B551011/KorService1/areaBasedList1', {
                     params: {
-                        serviceKey: 'your_service_key',  // 발급받은 서비스 키
+                        serviceKey: 'api_key',  // 발급받은 서비스 키
                         numOfRows: 6,  // 한 번에 가져올 데이터 개수
                         contentTypeId: 12, //관광지
                         arrange: 'Q',
@@ -64,7 +64,7 @@ const RplacePage = () => {
     if (error) return <div>{error}</div>;
 
     return (
-        <div className='wrap'>
+        <div className='rplace '>
             <h1>지역별 추천 관광지</h1>
 
             <div className="region-buttons">
