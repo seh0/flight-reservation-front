@@ -27,8 +27,10 @@ const RplacePage = () => {
                 // API 호출
                 const response = await axios.get('https://apis.data.go.kr/B551011/KorService1/areaBasedList1', {
                     params: {
-                        serviceKey: '/OI0kOF3HjeqBLP+LCfX1h37HmEbzaVMLeNv92tFajmUu2uWfggZfuZVzcXmzr+TRToYaffB4gYI3cSO2z9pjQ==',  // 발급받은 서비스 키
+                        serviceKey: 'your_service_key',  // 발급받은 서비스 키
                         numOfRows: 6,  // 한 번에 가져올 데이터 개수
+                        contentTypeId: 12, //관광지
+                        arrange: 'Q',
                         pageNo: pageNo, // 현재 페이지 번호
                         MobileOS: 'ETC', // 모바일 OS
                         MobileApp: 'TestApp', // 모바일 앱 이름
@@ -36,8 +38,6 @@ const RplacePage = () => {
                         areaCode: areaCode, // 지역 코드 (상태에 따라 변경)
                     },
                 });
-
-                console.log(response.data);
 
                 if (response.data.response.body.items.item) {
                     setData(response.data.response.body.items.item);
@@ -90,8 +90,7 @@ const RplacePage = () => {
                             <div key={index} className="card">
                                 <img src={item.firstimage || "https://via.placeholder.com/150"} alt={item.title} className="card-image" />
                                 <h2>{item.title}</h2>
-                                <p><strong>주소:</strong> {item.addr1}</p>
-                                <p><strong>전화번호:</strong> {item.tel || '정보 없음'}</p>
+                                <p> {item.addr1}</p>
                             </div>
                         ))}
                 </div>

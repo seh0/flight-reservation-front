@@ -5,6 +5,7 @@ import '../style/Home.css';
 import QuickLink from "../components/QuickLink";
 import Hotplace from "../components/Hotplace";
 import SimpleAirportMap from "../components/SimpleAirportMap";
+import AirportWeather from "../components/AirportWeather";
 
 function Home() {
     return (
@@ -22,6 +23,7 @@ function Home() {
                 <SimpleAirportMap/>
                 <AdBanner />
                 <Hotplace />
+                <AirportWeather/>
             </div>
         </div>
     )
