@@ -47,8 +47,8 @@ function MyPage() {
                                 <div className="reservation-card" key={reservation.id}>
                                     <h4>예약 번호: {reservation.id}</h4>
                                     <p><strong>항공편:</strong> {reservation.flight.aircraftType}</p>
-                                    <p><strong>출발지 / 도착지:</strong> {reservation.flight.departure} / {reservation.flight.arrival}</p>
-                                    <p><strong>출발 시간:</strong> {reservation.flight.departureTime}</p>
+                                    <p><strong>출발지 / 도착지:</strong> {reservation.flight.departureName} / {reservation.flight.arrivalName}</p>
+                                    <p><strong>출발 날짜:</strong> {reservation.flight.departureTime.split("T")[0]}</p>
                                     <p><strong>좌석 번호:</strong> {reservation.selectedSeats.join(', ')}</p>
                                 </div>
                             ))}

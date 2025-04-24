@@ -23,8 +23,8 @@ function Header() {
 
             <nav className="nav-menu">
                 <span onClick={() => navigate("/flight")}>항공권</span>
-                <span onClick={() => navigate("/")}>공지사항</span>
-                <span onClick={() => navigate("/")}>이벤트</span>
+                <span onClick={() => navigate("/rplace")}>관광지</span>
+                <span onClick={() => navigate("/event")}>이벤트</span>
                 <span onClick={() => navigate("/")}>고객센터</span>
             </nav>
 

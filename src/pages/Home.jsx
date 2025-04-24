@@ -4,6 +4,7 @@ import AdBanner from '../components/AdBanner';
 import '../style/Home.css';
 import QuickLink from "../components/QuickLink";
 import Hotplace from "../components/Hotplace";
+import SimpleAirportMap from "../components/SimpleAirportMap";
 
 function Home() {
     return (
@@ -18,6 +19,7 @@ function Home() {
             <div className="contents-box">
                 <SearchFlight />
                 <QuickLink />
+                <SimpleAirportMap/>
                 <AdBanner />
                 <Hotplace />
             </div>

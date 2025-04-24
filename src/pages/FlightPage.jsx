@@ -58,35 +58,45 @@ function FlightPage() {
         <div>
             <SearchFlight onSearch={handleSearch} />
             <div className="selected-flights-box">
-                <MapWithPath flights={selectedFlights} />
+                <MapWithPath flights={selectedFlights} />   
                 <div className="flight-info-box">
                     <h3 className="mb-5">선택된 항공편</h3>
                     <div className="flight-pair-container1">
                         {selectedFlights.length === 2 ? (
                             <>
-                                <div className="flight-card1">
-                                    <p className="route1">
-                                        ✈ {selectedFlights[0].departureName} → {selectedFlights[0].arrivalName}
-                                    </p>
-                                    <p className="date1">🗓 {selectedFlights[0].departureTime?.split("T")[0]}</p>
-                                </div>
+                                {selectedFlights[0] && selectedFlights[1] && (
+                                    <>
+                                        <div className="flight-card1">
+                                            <p className="route1">
+                                                ✈ {selectedFlights[0].departureName} → {selectedFlights[0].arrivalName}
+                                            </p>
+                                            <p className="date1">🗓 {selectedFlights[0].departureTime?.split("T")[0]}</p>
+                                        </div>
 
-                                <div className="flight-card1">
-                                    <p className="route1">
-                                        ✈ {selectedFlights[1].departureName} → {selectedFlights[1].arrivalName}
-                                    </p>
-                                    <p className="date1">🗓 {selectedFlights[1].departureTime?.split("T")[0]}</p>
-                                </div>
+                                        <div className="flight-card1">
+                                            <p className="route1">
+                                                ✈ {selectedFlights[1].departureName} → {selectedFlights[1].arrivalName}
+                                            </p>
+                                            <p className="date1">🗓 {selectedFlights[1].departureTime?.split("T")[0]}</p>
+                                        </div>
+                                    </>
+                                )}
                             </>
                         ) : (
-                            selectedFlights.map((flight, idx) => (
-                                <div key={idx} className="flight-card1">
-                                    <p className="route1">
-                                        ✈ {flight.departureName} → {flight.arrivalName}
-                                    </p>
-                                    <p className="date1">🗓 {flight.departureTime?.split("T")[0]}</p>
-                                </div>
-                            ))
+                            selectedFlights.length > 0 ? (
+                                selectedFlights.map((flight, idx) => (
+                                    flight ? (
+                                        <div key={idx} className="flight-card1">
+                                            <p className="route1">
+                                                ✈ {flight.departureName} → {flight.arrivalName}
+                                            </p>
+                                            <p className="date1">🗓 {flight.departureTime?.split("T")[0]}</p>
+                                        </div>
+                                    ) : null
+                                ))
+                            ) : (
+                                <p>선택된 항공편이 없습니다.</p>
+                            )
                         )}
                     </div>
                 </div>

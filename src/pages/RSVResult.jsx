@@ -13,42 +13,63 @@ function RSVResult() {
             hour12: false,
         });
 
-    useEffect(() => {
-        const saveReservation = async () => {
-            setStatus('saving');
-
-            const loggedUser = localStorage.getItem('user');
-            const user = loggedUser ? JSON.parse(loggedUser) : null;
-
-            const reservationData = {
-                flight,
-                selectedSeats,
-                contact,
-                request,
-                userId: user?.id,
-                username: user?.username,
-                paymentComplete: true,
-                reservedAt: new Date().toISOString(),
+        useEffect(() => {
+            const saveReservation = async () => {
+                setStatus('saving');
+        
+                const loggedUser = localStorage.getItem('user');
+                const user = loggedUser ? JSON.parse(loggedUser) : null;
+        
+                const baseData = {
+                    selectedSeats,
+                    contact,
+                    request,
+                    userId: user?.id,
+                    username: user?.username,
+                    paymentComplete: true,
+                    reservedAt: new Date().toISOString(),
+                };
+        
+                const saveSingleReservation = async (flightData) => {
+                    const reservation = {
+                        ...baseData,
+                        flight: flightData,
+                    };
+        
+                    try {
+                        await axios.post('http://localhost:5000/reservations', reservation);
+                    } catch (error) {
+                        throw error;
+                    }
+                };
+        
+                try {
+                    if (flight?.goFlight) {
+                        await saveSingleReservation(flight.goFlight);
+                    }
+        
+                    if (flight?.backFlight) {
+                        await saveSingleReservation(flight.backFlight);
+                    }
+        
+                    setStatus('success');
+                } catch (error) {
+                    console.error('예약 저장 실패:', error);
+                    setStatus('error');
+                }
             };
-
-            try {
-                await axios.post('http://localhost:5000/reservations', reservationData);
-                setStatus('success');
-            } catch (error) {
-                console.error('예약 저장 실패:', error);
-                setStatus('error');
+        
+            if (flight?.goFlight) {
+                saveReservation();
             }
-        };
-
-        if (flight?.goFlight) {
-            saveReservation();
-        }
-    }, [flight, selectedSeats, contact, request]);
+        }, [flight, selectedSeats, contact, request]);
+        
 
     return (
         <div style={{ padding: '20px' }}>
             <h1>예약 최종 확인</h1>
 
+            {/* 상태 메시지 출력 */}
             {status === 'saving' && <p>예약 정보를 저장 중입니다...</p>}
             {status === 'success' && <p style={{ color: 'green' }}>예약이 성공적으로 저장되었습니다!</p>}
             {status === 'error' && <p style={{ color: 'red' }}>예약 저장에 실패했습니다. 다시 시도해주세요.</p>}
@@ -57,6 +78,7 @@ function RSVResult() {
 
             <h3>선택한 항공편</h3>
 
+            {/* ✅ 출력은 기존대로 구분 */}
             {flight?.goFlight && (
                 <div style={{ marginBottom: '20px' }}>
                     <strong>항공사:</strong> {flight.goFlight.aircraftType} <br />

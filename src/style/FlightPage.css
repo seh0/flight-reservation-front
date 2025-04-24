@@ -8,7 +8,6 @@
 
 .selected-flights-box {
     display: flex;
-    justify-content: center;
     align-items: flex-start;
     gap: 2rem;
     padding: 1.5rem;
@@ -23,7 +22,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    min-width: 320px;
+    width: 50%;
 }
 
 .selected-flights-list {

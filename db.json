@@ -77,354 +77,158 @@
   ],
   "reservations": [
     {
-      "id": "156f",
+      "id": "8def",
+      "selectedSeats": [
+        11
+      ],
+      "contact": "1",
+      "request": "",
+      "userId": "1",
+      "username": "user",
+      "paymentComplete": true,
+      "reservedAt": "2025-04-23T07:58:34.661Z",
       "flight": {
-        "id": "1",
-        "flightDate": "2025-04-20",
-        "departure": "서울",
-        "arrival": "뉴욕",
-        "departureTime": "6:30",
-        "arrivalTime": "12:00",
-        "aircraftType": "대한항공",
-        "seatCount": 50,
-        "flightDuration": "5시간 30분",
-        "price": 120000
-      },
+        "id": 9,
+        "departureName": "김포공항",
+        "arrivalName": "제주공항",
+        "departureTime": "2025-05-09T10:30",
+        "arrivalTime": "2025-05-09T13:00",
+        "aircraftType": "Boeing 777",
+        "flightClass": "Business",
+        "seatCount": 190,
+        "price": 150000
+      }
+    },
+    {
+      "id": "2d17",
+      "selectedSeats": [
+        11
+      ],
+      "contact": "1",
+      "request": "",
+      "userId": "1",
+      "username": "user",
+      "paymentComplete": true,
+      "reservedAt": "2025-04-23T07:58:34.661Z",
+      "flight": {
+        "id": 4,
+        "departureName": "제주공항",
+        "arrivalName": "김포공항",
+        "departureTime": "2025-05-04T06:45",
+        "arrivalTime": "2025-05-04T08:30",
+        "aircraftType": "Boeing 737",
+        "flightClass": "Economy",
+        "seatCount": 180,
+        "price": 150000
+      }
+    },
+    {
+      "id": "5471",
       "selectedSeats": [
         1
       ],
-      "contact": "01012345678",
-      "request": "요청",
-      "userId": "1",
-      "username": "user",
-      "paymentComplete": true,
-      "reservedAt": "2025-04-22T02:29:38.508Z"
-    },
-    {
-      "id": "4480",
-      "flight": {
-        "id": "3",
-        "flightDate": "2025-04-22",
-        "departure": "서울",
-        "arrival": "런던",
-        "departureTime": "10:00",
-        "arrivalTime": "16:00",
-        "aircraftType": "KLM",
-        "seatCount": 45,
-        "flightDuration": "11시간",
-        "price": 140000
-      },
-      "selectedSeats": [
-        14
-      ],
-      "contact": "01012345678",
+      "contact": "1",
       "request": "",
       "userId": "1",
       "username": "user",
       "paymentComplete": true,
-      "reservedAt": "2025-04-22T02:30:11.127Z"
+      "reservedAt": "2025-04-23T08:00:48.729Z",
+      "flight": {
+        "id": 2,
+        "departureName": "인천공항",
+        "arrivalName": "김해공항",
+        "departureTime": "2025-05-02T09:15:00",
+        "arrivalTime": "2025-05-02T12:00:00",
+        "aircraftType": "Airbus A320",
+        "seatCount": 250,
+        "flightClass": "Business"
+      }
     },
     {
-      "id": "2aa2",
-      "flight": {
-        "id": "1",
-        "flightDate": "2025-04-20",
-        "departure": "서울",
-        "arrival": "뉴욕",
-        "departureTime": "6:30",
-        "arrivalTime": "12:00",
-        "aircraftType": "대한항공",
-        "seatCount": 50,
-        "flightDuration": "5시간 30분",
-        "price": 120000
-      },
+      "id": "0d72",
       "selectedSeats": [
-        8,
-        12
+        3
       ],
-      "contact": "01078493829",
+      "contact": "0120",
       "request": "",
       "userId": "1",
       "username": "user",
       "paymentComplete": true,
-      "reservedAt": "2025-04-22T02:36:10.745Z"
+      "reservedAt": "2025-04-24T01:35:29.666Z",
+      "flight": {
+        "id": 1,
+        "departureName": "김포공항",
+        "arrivalName": "인천공항",
+        "departureTime": "2025-05-01T08:00:00",
+        "arrivalTime": "2025-05-01T10:30:00",
+        "aircraftType": "Boeing 737",
+        "seatCount": 150,
+        "flightClass": "Economy"
+      }
     },
     {
-      "id": "4df4",
-      "flight": {
-        "id": "1",
-        "flightDate": "2025-04-20",
-        "departure": "서울",
-        "arrival": "뉴욕",
-        "departureTime": "6:30",
-        "arrivalTime": "12:00",
-        "aircraftType": "대한항공",
-        "seatCount": 50,
-        "flightDuration": "5시간 30분",
-        "price": 120000
-      },
+      "id": "6c0f",
       "selectedSeats": [
-        8,
-        12
+        2
       ],
-      "contact": "01078493829",
+      "contact": "1",
       "request": "",
-      "userId": "1",
-      "username": "user",
       "paymentComplete": true,
-      "reservedAt": "2025-04-22T02:37:05.309Z"
+      "reservedAt": "2025-04-24T01:41:47.341Z",
+      "flight": {
+        "id": 1,
+        "departureName": "김포공항",
+        "arrivalName": "인천공항",
+        "departureTime": "2025-05-01T08:00:00",
+        "arrivalTime": "2025-05-01T10:30:00",
+        "aircraftType": "Boeing 737",
+        "seatCount": 150,
+        "flightClass": "Economy"
+      }
     },
     {
-      "id": "ad6f",
-      "flight": {
-        "id": "1",
-        "flightDate": "2025-04-20",
-        "departure": "서울",
-        "arrival": "뉴욕",
-        "departureTime": "6:30",
-        "arrivalTime": "12:00",
-        "aircraftType": "대한항공",
-        "seatCount": 50,
-        "flightDuration": "5시간 30분",
-        "price": 120000
-      },
-      "selectedSeats": [
-        12,
-        16
-      ],
-      "contact": "123",
-      "request": "1313",
-      "userId": "1",
-      "username": "user",
-      "paymentComplete": true,
-      "reservedAt": "2025-04-22T02:38:47.728Z"
-    },
-    {
-      "id": "3cbb",
-      "flight": {
-        "id": "1",
-        "flightDate": "2025-04-20",
-        "departure": "서울",
-        "arrival": "뉴욕",
-        "departureTime": "6:30",
-        "arrivalTime": "12:00",
-        "aircraftType": "대한항공",
-        "seatCount": 50,
-        "flightDuration": "5시간 30분",
-        "price": 120000
-      },
-      "selectedSeats": [
-        12,
-        16
-      ],
-      "contact": "123",
-      "request": "1313",
-      "userId": "1",
-      "username": "user",
-      "paymentComplete": true,
-      "reservedAt": "2025-04-22T02:40:01.263Z"
-    },
-    {
-      "id": "3299",
-      "flight": {
-        "id": "1",
-        "flightDate": "2025-04-20",
-        "departure": "서울",
-        "arrival": "뉴욕",
-        "departureTime": "6:30",
-        "arrivalTime": "12:00",
-        "aircraftType": "대한항공",
-        "seatCount": 50,
-        "flightDuration": "5시간 30분",
-        "price": 120000
-      },
-      "selectedSeats": [
-        12,
-        16
-      ],
-      "contact": "123",
-      "request": "1313",
-      "userId": "1",
-      "username": "user",
-      "paymentComplete": true,
-      "reservedAt": "2025-04-22T02:40:41.877Z"
-    },
-    {
-      "id": "c153",
-      "flight": {
-        "id": "1",
-        "flightDate": "2025-04-20",
-        "departure": "서울",
-        "arrival": "뉴욕",
-        "departureTime": "6:30",
-        "arrivalTime": "12:00",
-        "aircraftType": "대한항공",
-        "seatCount": 50,
-        "flightDuration": "5시간 30분",
-        "price": 120000
-      },
-      "selectedSeats": [
-        12,
-        16
-      ],
-      "contact": "123",
-      "request": "1313",
-      "userId": "1",
-      "username": "user",
-      "paymentComplete": true,
-      "reservedAt": "2025-04-22T02:40:47.097Z"
-    },
-    {
-      "id": "d8f4",
-      "flight": {
-        "id": "4",
-        "flightDate": "2025-04-23",
-        "departure": "서울",
-        "arrival": "로스앤젤레스",
-        "departureTime": "7:00",
-        "arrivalTime": "13:30",
-        "aircraftType": "델타항공",
-        "seatCount": 70,
-        "flightDuration": "10시간 30분",
-        "price": 135000
-      },
+      "id": "1bbd",
       "selectedSeats": [
         3,
-        4,
-        8,
-        9
+        7
       ],
-      "contact": "010483891",
-      "request": "4444",
-      "userId": "1",
-      "username": "user",
+      "contact": "1",
+      "request": "",
       "paymentComplete": true,
-      "reservedAt": "2025-04-22T03:17:22.253Z"
-    },
-    {
-      "id": "1e44",
+      "reservedAt": "2025-04-24T02:47:04.797Z",
       "flight": {
-        "id": "3",
-        "flightDate": "2025-04-22",
-        "departure": "서울",
-        "arrival": "런던",
-        "departureTime": "10:00",
-        "arrivalTime": "16:00",
-        "aircraftType": "KLM",
-        "seatCount": 45,
-        "flightDuration": "11시간",
-        "price": 140000
-      },
-      "selectedSeats": [
-        12,
-        8
-      ],
-      "contact": "1414",
-      "request": "1441411441",
-      "userId": "1",
-      "username": "user",
-      "paymentComplete": true,
-      "reservedAt": "2025-04-22T03:18:17.773Z"
-    },
-    {
-      "id": "b38d",
-      "flight": {
-        "id": "3",
-        "flightDate": "2025-04-22",
-        "departure": "서울",
-        "arrival": "런던",
-        "departureTime": "10:00",
-        "arrivalTime": "16:00",
-        "aircraftType": "KLM",
-        "seatCount": 45,
-        "flightDuration": "11시간",
-        "price": 140000
-      },
-      "selectedSeats": [
-        12,
-        8
-      ],
-      "contact": "1414",
-      "request": "1441411441",
-      "userId": "1",
-      "username": "user",
-      "paymentComplete": true,
-      "reservedAt": "2025-04-22T03:18:38.261Z"
-    },
-    {
-      "id": "0d11",
-      "flight": {
-        "id": "3",
-        "flightDate": "2025-04-22",
-        "departure": "서울",
-        "arrival": "런던",
-        "departureTime": "10:00",
-        "arrivalTime": "16:00",
-        "aircraftType": "KLM",
-        "seatCount": 45,
-        "flightDuration": "11시간",
-        "price": 140000
-      },
-      "selectedSeats": [
-        12,
-        8
-      ],
-      "contact": "1414",
-      "request": "1441411441",
-      "userId": "1",
-      "username": "user",
-      "paymentComplete": true,
-      "reservedAt": "2025-04-22T03:19:03.011Z"
-    },
-    {
-      "id": "10f9",
-      "flight": {
-        "id": "5",
-        "flightDate": "2025-04-24",
-        "departure": "서울",
-        "arrival": "도쿄",
-        "departureTime": "12:00",
-        "arrivalTime": "14:00",
-        "aircraftType": "일본항공",
-        "seatCount": 80,
-        "flightDuration": "2시간",
-        "price": 80000
-      },
-      "selectedSeats": [
-        3,
-        12
-      ],
-      "contact": "1414",
-      "request": "41411441",
-      "userId": "1",
-      "username": "user",
-      "paymentComplete": true,
-      "reservedAt": "2025-04-22T03:19:30.341Z"
-    },
-    {
-      "id": "0885",
-      "flight": {
-        "id": "2",
-        "flightDate": "2025-04-21",
-        "departure": "서울",
-        "arrival": "파리",
-        "departureTime": "8:00",
-        "arrivalTime": "14:30",
-        "aircraftType": "아시아나항공",
-        "seatCount": 60,
-        "flightDuration": "12시간 30분",
+        "id": 9,
+        "departureName": "김포공항",
+        "arrivalName": "제주공항",
+        "departureTime": "2025-05-09T10:30",
+        "arrivalTime": "2025-05-09T13:00",
+        "aircraftType": "Boeing 777",
+        "flightClass": "Business",
+        "seatCount": 190,
         "price": 150000
-      },
+      }
+    },
+    {
+      "id": "0bf1",
       "selectedSeats": [
-        13,
-        12
+        3,
+        7
       ],
-      "contact": "5151",
+      "contact": "1",
       "request": "",
-      "userId": "1",
-      "username": "user",
       "paymentComplete": true,
-      "reservedAt": "2025-04-22T03:21:37.940Z"
+      "reservedAt": "2025-04-24T02:47:04.797Z",
+      "flight": {
+        "id": 4,
+        "departureName": "제주공항",
+        "arrivalName": "김포공항",
+        "departureTime": "2025-05-04T06:45",
+        "arrivalTime": "2025-05-04T08:30",
+        "aircraftType": "Boeing 737",
+        "flightClass": "Economy",
+        "seatCount": 180,
+        "price": 150000
+      }
     }
   ]
 }
