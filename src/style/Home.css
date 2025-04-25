@@ -28,3 +28,14 @@
 .contents-box>* {
     margin-bottom: 10vh;
 }
+
+.scroll-to-top {
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.scroll-to-top:hover {
+    background-color: #f2f2f2;
+}

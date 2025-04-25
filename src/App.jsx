@@ -17,6 +17,7 @@ import RSVResult from "./pages/RSVResult";
 import RSVPayment from "./pages/RSVPayment";
 import EventPage from "./pages/EventPage";
 import RplacePage from "./pages/RplacePage";
+import SplacePage from "./pages/SplacePage";
 function App() {
   const location = useLocation();
   const hideLayoutRoutes = ["/login", "/signup", "/payment"];
@@ -36,6 +37,7 @@ function App() {
           <Route path="/payment" element={<Payment />} />
           <Route path="/event" element={<EventPage />} />
           <Route path="/rplace" element={<RplacePage />} />
+          <Route path="/splace" element={<SplacePage />} />
 
           <Route element={<ReservationLayout />}>
             <Route path="/flight/detail" element={<FlightDetail />} />

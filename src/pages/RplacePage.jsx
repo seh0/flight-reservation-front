@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import "../style/RplacePage.css";
+import "../style/PlacePage.css";
 
 const RplacePage = () => {
     const [data, setData] = useState(null);
@@ -27,10 +27,10 @@ const RplacePage = () => {
                 // API 호출
                 const response = await axios.get('https://apis.data.go.kr/B551011/KorService1/areaBasedList1', {
                     params: {
-                        serviceKey: 'api_key',  // 발급받은 서비스 키
+                        serviceKey: import.meta.env.VITE_API_KEY_b,  // 발급받은 서비스 키
                         numOfRows: 6,  // 한 번에 가져올 데이터 개수
                         contentTypeId: 12, //관광지
-                        arrange: 'Q',
+                        arrange: 'Q', //정렬 타입
                         pageNo: pageNo, // 현재 페이지 번호
                         MobileOS: 'ETC', // 모바일 OS
                         MobileApp: 'TestApp', // 모바일 앱 이름
@@ -60,11 +60,9 @@ const RplacePage = () => {
         setPageNo(1);
     };
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
 
     return (
-        <div className='rplace '>
+        <div className='rplace'>
             <h1>지역별 추천 관광지</h1>
 
             <div className="region-buttons">
@@ -79,25 +77,32 @@ const RplacePage = () => {
                 ))}
             </div>
 
-            {data && data.length > 0 ? (
-                <div className="card-container">
-                    {data
-                        .filter(item =>
-                            item.addr1 && item.addr1.trim() !== '' &&
-                            item.firstimage && item.firstimage.trim() !== ''
-                        )
-                        .map((item, index) => (
-                            <div key={index} className="card">
-                                <img src={item.firstimage || "https://via.placeholder.com/150"} alt={item.title} className="card-image" />
-                                <h2>{item.title}</h2>
-                                <p> {item.addr1}</p>
-                            </div>
-                        ))}
-                </div>
-            ) : (
-                <p>해당 지역에 대한 정보가 없습니다.</p>
-            )}
+            <div className="results-section">
+                {loading ? (
+                    <div className="loading">Loading...</div> 
+                ) : error ? (
+                    <div className="error">{error}</div>
+                ) : data && data.length > 0 ? (
+                    <div className="card-container">
+                        {data
+                            .filter(item =>
+                                item.addr1 && item.addr1.trim() !== '' &&
+                                item.firstimage && item.firstimage.trim() !== ''
+                            )
+                            .map((item, index) => (
+                                <div key={index} className="card">
+                                    <img src={item.firstimage || "https://via.placeholder.com/150"} alt={item.title} className="card-image" />
+                                    <h2>{item.title}</h2>
+                                    <p>{item.addr1}</p>
+                                </div>
+                            ))}
+                    </div>
+                ) : (
+                    <p>해당 지역에 대한 정보가 없습니다.</p>
+                )}
+            </div>
 
+            {/* 페이지네이션 */}
             <div className="pagination">
                 <button onClick={() => setPageNo(prevPageNo => prevPageNo - 1)} disabled={pageNo <= 1}>
                     이전

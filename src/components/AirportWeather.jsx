@@ -27,7 +27,7 @@ const AirportWeather = () => {
     try {
       const today = new Date();
       const baseDate = today.toISOString().slice(0, 10).replace(/-/g, '');
-      const API_KEY = 'api_key';
+      const API_KEY = import.meta.env.VITE_API_KEY_a;
       const url = `https://apis.data.go.kr/1360000/AirPortService/getAirPort?serviceKey=${API_KEY}&numOfRows=0&pageNo=0&dataType=JSON&base_date=${baseDate}&base_time=0600&airPortCd=${airPortCd}`;
       const response = await axios.get(url);
 
@@ -40,7 +40,8 @@ const AirportWeather = () => {
         setError('데이터를 불러오는 데 실패했습니다.');
       }
     } catch (err) {
-      setError(`오류 발생: ${err.message}`);
+      console.log(`오류: ${err.message}`);
+      setError('데이터를 불러오는 데 실패했습니다.');
     } finally {
       setLoading(false);
     }
@@ -61,14 +62,15 @@ const AirportWeather = () => {
         <div className="button-group">
           {airports.map((airport) => (
             <button
-              key={airport.code}
-              onClick={() => handleAirportChange(airport.code)}
-              className={`airport-button ${airport.code === airportCode ? 'active' : ''}`}
+            key={airport.code}
+            onClick={() => handleAirportChange(airport.code)}
+            className={`airport-button ${airport.code === airportCode ? 'active' : ''}`}
             >
               {airport.name}
             </button>
           ))}
         </div>
+        <div className="airport-contents">
 
         {loading && <div>불러오는 중...</div>}
         {error && <div>{error}</div>}
@@ -82,6 +84,7 @@ const AirportWeather = () => {
             <p><strong>경고:</strong><br />{weatherData.warn}</p>
           </div>
         )}
+        </div>
       </div>
       <p style={{ textAlign: 'right', fontSize: '12px', color: 'gray' }}>
         ※ 본 서비스는 <a href="https://www.data.go.kr" target="_blank" rel="noopener noreferrer">공공데이터포털(www.data.go.kr)</a>의

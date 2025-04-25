@@ -97,3 +97,34 @@
 .logout-btn:hover {
     background-color: rgb(65, 65, 230);
 }
+
+.nav-item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+}
+
+.nav-item:hover .dropdown {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}

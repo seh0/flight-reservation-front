@@ -55,7 +55,7 @@ function FlightPage() {
     };
 
     return (
-        <div>
+        <div className="flight">
             <SearchFlight onSearch={handleSearch} />
             <div className="selected-flights-box">
                 <MapWithPath flights={selectedFlights} />   
