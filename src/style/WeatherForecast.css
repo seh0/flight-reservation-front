@@ -1,8 +1,8 @@
 .weather-container {
     padding: 20px;
     min-height: 350px;
-    background: linear-gradient(135deg, #f0f9ff, #ffffff); 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    background: linear-gradient(135deg, #f0f9ff, #ffffff);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .weather-cards-wrapper {
@@ -50,3 +50,26 @@
     color: #888;
 }
 
+.region-selection {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.region-selection button {
+    background-color: white;
+    color: black;
+    border: 2px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.region-selection button:hover {
+    background-color: #ddd;
+}
+
+.region-selection button.selected {
+    background-color: #59a7f6;
+    color: white;
+}

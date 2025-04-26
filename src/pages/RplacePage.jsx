@@ -79,18 +79,26 @@ const RplacePage = () => {
 
             <div className="results-section">
                 {loading ? (
-                    <div className="loading">Loading...</div> 
+                    <div className="loading">Loading...</div>
                 ) : error ? (
                     <div className="error">{error}</div>
                 ) : data && data.length > 0 ? (
-                    <div className="card-container">
+                    <div className="card-container" >
                         {data
                             .filter(item =>
                                 item.addr1 && item.addr1.trim() !== '' &&
                                 item.firstimage && item.firstimage.trim() !== ''
                             )
                             .map((item, index) => (
-                                <div key={index} className="card">
+                                <div key={index} className="card"
+                                    onClick={() => {
+                                        const confirmMove = window.confirm("외부 링크로 이동됩니다. 이동할까요?");
+                                        if (confirmMove) {
+                                            window.open(`https://www.google.com/search?q=${encodeURIComponent(item.title)}`, '_blank');
+                                        }
+                                    }}
+                                    style={{ cursor: 'pointer' }}
+                                >
                                     <img src={item.firstimage || "https://via.placeholder.com/150"} alt={item.title} className="card-image" />
                                     <h2>{item.title}</h2>
                                     <p>{item.addr1}</p>
@@ -102,7 +110,6 @@ const RplacePage = () => {
                 )}
             </div>
 
-            {/* 페이지네이션 */}
             <div className="pagination">
                 <button onClick={() => setPageNo(prevPageNo => prevPageNo - 1)} disabled={pageNo <= 1}>
                     이전

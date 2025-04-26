@@ -50,7 +50,7 @@ function RSVPayment() {
                 navigate(`/rsv/result`);
             }, 2000);
 
-            return () => clearTimeout(timer); // cleanup
+            return () => clearTimeout(timer);
         }
     }, [paymentComplete, navigate]);
 

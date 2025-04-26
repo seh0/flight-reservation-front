@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setSelectedSeats } from '../data/reservationSlice';
-import './SelectSeat.css';
+import '../style/SelectSeat.css';
 
 function SelectSeat() {
     const navigate = useNavigate();

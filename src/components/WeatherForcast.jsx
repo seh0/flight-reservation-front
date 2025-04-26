@@ -5,6 +5,8 @@ const WeatherForecast = () => {
   const [forecast, setForecast] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [regId, setRegId] = useState("11B00000");
+  const [selectedRegion, setSelectedRegion] = useState("서울");
 
   const getWeatherIcon = (text) => {
     if (!text) return "❓";
@@ -22,7 +24,7 @@ const WeatherForecast = () => {
         const nowDate =
           today.toISOString().slice(0, 10).replace(/-/g, "") + "0600";
         const API_KEY = import.meta.env.VITE_API_KEY_a;
-        const API_URL = `https://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${API_KEY}&pageNo=1&numOfRows=10&dataType=JSON&regId=11B00000&tmFc=${nowDate}`;
+        const API_URL = `https://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${API_KEY}&pageNo=1&numOfRows=10&dataType=JSON&regId=${regId}&tmFc=${nowDate}`;
         const response = await fetch(API_URL);
         const data = await response.json();
         const item = data.response.body.items.item[0];
@@ -35,8 +37,11 @@ const WeatherForecast = () => {
       }
     };
 
-    fetchForecast();
-  }, []);
+    if (regId !== "?") {
+      setLoading(true);
+      fetchForecast();
+    }
+  }, [regId]);
 
   const days = [4, 5, 6, 7];
   const nextDays = [8, 9, 10];
@@ -45,15 +50,40 @@ const WeatherForecast = () => {
     const date = new Date();
     date.setDate(date.getDate() + offset);
     const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
-    return `${date.getMonth() + 1}월 ${date.getDate()}일 (${
-      weekdays[date.getDay()]
-    })`;
+    return `${date.getMonth() + 1}월 ${date.getDate()}일 (${weekdays[date.getDay()]
+      })`;
+  };
+
+  const regionCodes = {
+    "서울": "11B00000",
+    "강원": "11D10000",
+    "충청": "11C20000",
+    "호남": "11F20000",
+    "경북": "11H10000",
+    "경남": "11H20000",
+    "제주": "11G00000"
+  };
+
+  const handleRegionClick = (region, code) => {
+    setSelectedRegion(region);
+    setRegId(code);
   };
 
   return (
     <div>
       <h1>날씨 예보</h1>
       <div className="weather-container">
+        <div className="region-selection">
+          {Object.keys(regionCodes).map((region) => (
+            <button
+              key={region}
+              onClick={() => handleRegionClick(region, regionCodes[region])}
+              className={selectedRegion === region ? "selected" : ""}
+            >
+              {region}
+            </button>
+          ))}
+        </div>
         {loading ? (
           <div>⏳ 날씨 데이터를 불러오는 중...</div>
         ) : error ? (

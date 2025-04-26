@@ -1,66 +1,4 @@
 {
-  "flights": [
-    {
-      "id": "1",
-      "flightDate": "2025-04-20",
-      "departure": "서울",
-      "arrival": "뉴욕",
-      "departureTime": "6:30",
-      "arrivalTime": "12:00",
-      "aircraftType": "대한항공",
-      "seatCount": 50,
-      "flightDuration": "5시간 30분",
-      "price": 120000
-    },
-    {
-      "id": "2",
-      "flightDate": "2025-04-21",
-      "departure": "서울",
-      "arrival": "파리",
-      "departureTime": "8:00",
-      "arrivalTime": "14:30",
-      "aircraftType": "아시아나항공",
-      "seatCount": 60,
-      "flightDuration": "12시간 30분",
-      "price": 150000
-    },
-    {
-      "id": "3",
-      "flightDate": "2025-04-22",
-      "departure": "서울",
-      "arrival": "런던",
-      "departureTime": "10:00",
-      "arrivalTime": "16:00",
-      "aircraftType": "KLM",
-      "seatCount": 45,
-      "flightDuration": "11시간",
-      "price": 140000
-    },
-    {
-      "id": "4",
-      "flightDate": "2025-04-23",
-      "departure": "서울",
-      "arrival": "로스앤젤레스",
-      "departureTime": "7:00",
-      "arrivalTime": "13:30",
-      "aircraftType": "델타항공",
-      "seatCount": 70,
-      "flightDuration": "10시간 30분",
-      "price": 135000
-    },
-    {
-      "id": "5",
-      "flightDate": "2025-04-24",
-      "departure": "서울",
-      "arrival": "도쿄",
-      "departureTime": "12:00",
-      "arrivalTime": "14:00",
-      "aircraftType": "일본항공",
-      "seatCount": 80,
-      "flightDuration": "2시간",
-      "price": 80000
-    }
-  ],
   "users": [
     {
       "id": "1",
@@ -229,6 +167,85 @@
         "seatCount": 180,
         "price": 150000
       }
+    },
+    {
+      "id": "c559",
+      "selectedSeats": [
+        7
+      ],
+      "contact": "01038201132",
+      "request": "",
+      "paymentComplete": true,
+      "reservedAt": "2025-04-26T16:09:09.314Z",
+      "flight": {
+        "id": 8,
+        "departureName": "제주공항",
+        "arrivalName": "인천공항",
+        "departureTime": "2025-05-08T18:15",
+        "arrivalTime": "2025-05-08T20:30",
+        "aircraftType": "Airbus A320",
+        "flightClass": "First Class",
+        "seatCount": 220,
+        "price": 150000
+      }
+    }
+  ],
+  "boards": [
+    {
+      "id": "9ce2",
+      "title": "제목입니다",
+      "content": "내용입니다",
+      "author": "1234",
+      "created_at": "2025-04-26T14:50:26.159Z",
+      "views": 8
+    },
+    {
+      "id": "4c08",
+      "title": "123",
+      "content": "123",
+      "author": "123",
+      "created_at": "2025-04-26T14:51:35.035Z",
+      "views": 0
+    },
+    {
+      "id": "6062",
+      "title": "131",
+      "content": "13",
+      "author": "31",
+      "created_at": "2025-04-26T15:00:59.733Z",
+      "views": 1
+    },
+    {
+      "id": "49a3",
+      "title": "제목",
+      "content": "내용",
+      "author": "글쓴이",
+      "created_at": "2025-04-26T15:22:22.958Z",
+      "views": 0
+    },
+    {
+      "id": "d3ec",
+      "title": "555",
+      "content": "5151",
+      "author": "131412",
+      "created_at": "2025-04-26T15:23:29.858Z",
+      "views": 1
+    },
+    {
+      "id": "fc0e",
+      "title": "ㅎㅇ",
+      "content": "ㅎㅇ",
+      "author": "ㅎㅇ",
+      "created_at": "2025-04-26T15:27:15.092Z",
+      "views": 3
+    },
+    {
+      "id": "73dd",
+      "title": "111",
+      "content": "1111",
+      "author": "1111",
+      "created_at": "2025-04-26T15:50:16.759Z",
+      "views": 1
     }
   ]
 }

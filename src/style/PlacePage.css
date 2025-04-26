@@ -113,7 +113,6 @@
   margin: 20vh 5vw 0;
 }
 
-/* 검색 폼 */
 .search-form {
   display: flex;
   justify-content: center;
@@ -160,6 +159,6 @@
 }
 
 .results-section {
-  min-height: 300px; /* 로딩 시에도 공간 유지 */
+  min-height: 300px;
 }
 

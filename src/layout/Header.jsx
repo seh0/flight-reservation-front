@@ -42,7 +42,7 @@ function Header() {
             </div>
           </div>
         </div>
-        <span onClick={() => navigate("/event")}>이벤트</span>
+        <span onClick={() => navigate("/board")}>공지사항</span>
         <span onClick={() => navigate("/")}>고객센터</span>
       </nav>
 

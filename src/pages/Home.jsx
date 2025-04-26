@@ -5,8 +5,8 @@ import "../style/Home.css";
 import QuickLink from "../components/QuickLink";
 import Hotplace from "../components/Hotplace";
 import SimpleAirportMap from "../components/SimpleAirportMap";
-import AirportWeather from "../components/AirportWeather";
 import WeatherForecast from "../components/WeatherForcast";
+import Boards from "../components/Boards";
 
 function Home() {
   const scrollToTop = () => {
@@ -26,7 +26,7 @@ function Home() {
         <AdBanner />
         <Hotplace />
         <WeatherForecast />
-        <AirportWeather />
+        <Boards />
       </div>
       <div className="scroll-to-top" onClick={scrollToTop}>
       <p>↑ 페이지 상단으로 이동</p>

@@ -14,7 +14,7 @@ const SplacePage = () => {
     const [pageNo, setPageNo] = useState(1);
     const [keyword, setKeyword] = useState('');
     const [searchKeyword, setSearchKeyword] = useState(passedKeyword);
-    
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -28,7 +28,7 @@ const SplacePage = () => {
                         MobileOS: 'ETC',
                         MobileApp: 'TestApp',
                         _type: 'json',
-                        keyword: searchKeyword, 
+                        keyword: searchKeyword,
                     },
                 });
 
@@ -53,58 +53,65 @@ const SplacePage = () => {
     const handleSearch = (e) => {
         e.preventDefault();
         setPageNo(1);
-        setSearchKeyword(keyword); // 실제 검색어 업데이트 (API 호출 트리거)
+        setSearchKeyword(keyword);
         setLoading(true);
     };
 
     return (
-            <div className='rplace'>
-                <h1>관광지 검색</h1>
-        
-                <form onSubmit={handleSearch} className="search-form">
-                    <input 
-                        type="text" 
-                        placeholder="검색어를 입력하세요" 
-                        value={keyword} 
-                        onChange={(e) => setKeyword(e.target.value)} 
-                    />
-                    <button type="submit">검색</button>
-                </form>
-        
-                <div className="results-section">
-                    {loading ? (
-                        <div className="loading">Loading...</div>
-                    ) : error ? (
-                        <div className="error">{error}</div>
-                    ) : data && data.length > 0 ? (
-                        <div className="card-container">
-                            {data
-                                .filter(item =>
-                                    item.addr1 && item.addr1.trim() !== '' &&
-                                    item.firstimage && item.firstimage.trim() !== ''
-                                )
-                                .map((item, index) => (
-                                    <div key={index} className="card">
-                                        <img src={item.firstimage || "https://via.placeholder.com/150"} alt={item.title} className="card-image" />
-                                        <h2>{item.title}</h2>
-                                        <p>{item.addr1}</p>
-                                    </div>
-                                ))}
-                        </div>
-                    ) : (
-                        <p>해당 지역에 대한 정보가 없습니다.</p>
-                    )}
-                </div>
-        
-                <div className="pagination">
-                    <button onClick={() => setPageNo(prevPageNo => prevPageNo - 1)} disabled={pageNo <= 1}>
-                        이전
-                    </button>
-                    <button onClick={() => setPageNo(prevPageNo => prevPageNo + 1)}>
-                        다음
-                    </button>
-                </div>
+        <div className='rplace'>
+            <h1>관광지 검색</h1>
+
+            <form onSubmit={handleSearch} className="search-form">
+                <input
+                    type="text"
+                    placeholder="검색어를 입력하세요"
+                    value={keyword}
+                    onChange={(e) => setKeyword(e.target.value)}
+                />
+                <button type="submit">검색</button>
+            </form>
+
+            <div className="results-section">
+                {loading ? (
+                    <div className="loading">Loading...</div>
+                ) : error ? (
+                    <div className="error">{error}</div>
+                ) : data && data.length > 0 ? (
+                    <div className="card-container">
+                        {data
+                            .filter(item =>
+                                item.addr1 && item.addr1.trim() !== '' &&
+                                item.firstimage && item.firstimage.trim() !== ''
+                            )
+                            .map((item, index) => (
+                                <div key={index} className="card"
+                                    onClick={() => {
+                                        const confirmMove = window.confirm("외부 링크로 이동됩니다. 이동할까요?");
+                                        if (confirmMove) {
+                                            window.open(`https://www.google.com/search?q=${encodeURIComponent(item.title)}`, '_blank');
+                                        }
+                                    }}
+                                    style={{ cursor: 'pointer' }}   >
+                                    <img src={item.firstimage || "https://via.placeholder.com/150"} alt={item.title} className="card-image" />
+                                    <h2>{item.title}</h2>
+                                    <p>{item.addr1}</p>
+                                </div>
+                            ))}
+                    </div>
+                ) : (
+                    <p>해당 지역에 대한 정보가 없습니다.</p>
+                )}
             </div>
+
+            <div className="pagination">
+                <button onClick={() => setPageNo(prevPageNo => prevPageNo - 1)} disabled={pageNo <= 1}>
+                    이전
+                </button>
+                <button onClick={() => setPageNo(prevPageNo => prevPageNo + 1)}>
+                    다음
+                </button>
+            </div>
+        </div>
     );
 };
 

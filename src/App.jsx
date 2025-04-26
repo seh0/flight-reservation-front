@@ -2,6 +2,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import './App.css';
 
 import Home from "./pages/Home";
+import ScrollTop from "./components/ScrollTop";
 import FlightPage from "./pages/FlightPage";
 import FlightDetail from "./pages/FlightDetail";
 import ReservationLayout from "./layout/ReservationLayout";
@@ -15,9 +16,13 @@ import MyPage from "./pages/Mypage";
 import Payment from "./pages/Payment";
 import RSVResult from "./pages/RSVResult";
 import RSVPayment from "./pages/RSVPayment";
-import EventPage from "./pages/EventPage";
+import BoardPage from "./pages/BoardPage";
+import BoardWrite from "./pages/BoardWrite";
 import RplacePage from "./pages/RplacePage";
 import SplacePage from "./pages/SplacePage";
+import BoardDetail from "./pages/BoardDetail";
+
+
 function App() {
   const location = useLocation();
   const hideLayoutRoutes = ["/login", "/signup", "/payment"];
@@ -28,6 +33,7 @@ function App() {
     <div>
       {!hideLayout && <Header />}
       <div className="wrap">
+        <ScrollTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -35,7 +41,9 @@ function App() {
           <Route path="/flight" element={<FlightPage />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/payment" element={<Payment />} />
-          <Route path="/event" element={<EventPage />} />
+          <Route path="/board" element={<BoardPage />} />
+          <Route path="/bwrite" element={<BoardWrite />} />
+          <Route path="/board/:boardId" element={<BoardDetail />} />
           <Route path="/rplace" element={<RplacePage />} />
           <Route path="/splace" element={<SplacePage />} />
 

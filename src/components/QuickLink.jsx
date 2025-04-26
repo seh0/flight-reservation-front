@@ -29,7 +29,7 @@ function QuickLink() {
             title: "항공권 혜택",
             item: "특별 할인 혜택 확인하기",
             image: "🎁",
-            link: "/event"
+            link: "/board"
         },
         {
             id: 4,
