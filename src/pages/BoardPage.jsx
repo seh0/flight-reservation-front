@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../style/BoardPage.css";
+import '../style/BoardPage.css';
 
 const BoardPage = () => {
     const [boards, setBoards] = useState([]);
@@ -12,7 +12,14 @@ const BoardPage = () => {
         axios
             .get("http://localhost:5000/boards")
             .then((response) => {
-                setBoards(response.data);
+                const sortedBoards = response.data
+                    .sort((a, b) => {
+                        if (a.pinned === b.pinned) {
+                            return new Date(b.created_at) - new Date(a.created_at);
+                        }
+                        return a.pinned ? -1 : 1;
+                    });
+                setBoards(sortedBoards);
                 setLoading(false);
             })
             .catch((error) => {
@@ -26,14 +33,13 @@ const BoardPage = () => {
     };
 
     if (loading) {
-        return <div className="board-page-loading">게시판을 불러오는 중...</div>;
+        return <div className="loading">게시판을 불러오는 중...</div>;
     }
 
     return (
-        <div className="recent-boards">
-            <h1 className="recent-boards-header">공지사항</h1>
-            <button onClick={() => navigate("/bwrite")}>글쓰기</button>
-            <table className="boards-table">
+        <div className="board-page">
+            <h1 className="page-title">공지사항</h1>
+            <table className="board-table">
                 <thead>
                     <tr>
                         <th>작성일</th>
@@ -45,7 +51,7 @@ const BoardPage = () => {
                 <tbody>
                     {boards.length === 0 ? (
                         <tr>
-                            <td colSpan="4">최근 게시글이 없습니다.</td>
+                            <td colSpan="4" className="no-posts">최근 게시글이 없습니다.</td>
                         </tr>
                     ) : (
                         boards.map((board) => (
@@ -59,6 +65,7 @@ const BoardPage = () => {
                     )}
                 </tbody>
             </table>
+            <button className="write-button" onClick={() => navigate("/bwrite")}>글쓰기</button>
         </div>
     );
 };

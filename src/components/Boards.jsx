@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../style/BoardPage.css";
+import "../style/Boards.css";
 
 const Boards = () => {
   const [boards, setBoards] = useState([]);
@@ -12,10 +12,16 @@ const Boards = () => {
     axios
       .get("http://localhost:5000/boards")
       .then((response) => {
-        const recentBoards = response.data
-          .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+        const sortedBoards = response.data
+          .sort((a, b) => {
+            if (a.pinned === b.pinned) {
+              return new Date(b.created_at) - new Date(a.created_at);
+            }
+            return a.pinned ? -1 : 1;
+          })
           .slice(0, 5);
-        setBoards(recentBoards);
+
+        setBoards(sortedBoards);
         setLoading(false);
       })
       .catch((error) => {
@@ -28,40 +34,52 @@ const Boards = () => {
     navigate(`/board/${boardId}`);
   };
 
-  if (loading) {
-    return <div className="board-page-loading">게시판을 불러오는 중...</div>;
-  }
+  const handleMorePostClick = () => {
+    navigate("/board");
+  };
 
   return (
     <div className="recent-boards">
-      <h1 className="recent-boards-header">공지사항</h1>
+      <div className="recent-boards-header-container">
+        <h1 className="recent-boards-header">공지사항</h1>
+        <button 
+          className="more-post-button" 
+          onClick={handleMorePostClick}
+        >
+          +
+        </button>
+      </div>
 
-      <table className="boards-table">
-        <thead>
-          <tr>
-            <th>작성일</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>조회수</th>
-          </tr>
-        </thead>
-        <tbody>
-          {boards.length === 0 ? (
+      {loading ? (
+        <div className="board-page-loading">게시글을 불러오는 중...</div>
+      ) : (
+        <table className="boards-table">
+          <thead>
             <tr>
-              <td colSpan="4">최근 게시글이 없습니다.</td>
+              <th>작성일</th>
+              <th>제목</th>
+              <th>작성자</th>
+              <th>조회수</th>
             </tr>
-          ) : (
-            boards.map((board) => (
-              <tr key={board.id} onClick={() => handleBoardClick(board.id)}>
-                <td>{new Date(board.created_at).toLocaleDateString()}</td>
-                <td>{board.title}</td>
-                <td>{board.author}</td>
-                <td>{board.views}</td>
+          </thead>
+          <tbody>
+            {boards.length === 0 ? (
+              <tr>
+                <td colSpan="4">최근 게시글이 없습니다.</td>
               </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+            ) : (
+              boards.map((board) => (
+                <tr key={board.id} onClick={() => handleBoardClick(board.id)}>
+                  <td>{new Date(board.created_at).toLocaleDateString()}</td>
+                  <td>{board.title}</td>
+                  <td>{board.author}</td>
+                  <td>{board.views}</td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };

@@ -1,60 +1,66 @@
-.recent-boards {
-  margin: 20px;
+.board-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.recent-boards-header {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
+.page-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
 }
 
-.boards-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+.write-button {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-top: 20px;  
+    cursor: pointer;
 }
 
-.boards-table th,
-.boards-table td {
-  padding: 10px;
-  text-align: left;
+.write-button:hover {
+    background-color: #0056b3;
 }
 
-.boards-table th {
-  background-color: #f4f4f4;
-  font-weight: bold;
+.board-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.boards-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+.board-table th,
+.board-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-.boards-table tr:hover {
-  background-color: #f1f1f1;
-  cursor: pointer;
+.board-table th {
+    background-color: #f0f9ff;
+    color: #333;
 }
 
-.boards-table td:nth-child(1),
-.boards-table th:nth-child(1) {
-  width: 10%;
-  /* 작성일 */
+.board-table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
 }
 
-.boards-table td:nth-child(2),
-.boards-table th:nth-child(2) {
-  width: 60%;
-  /* 제목 */
-  text-align: center;
+.no-posts {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
 }
 
-.boards-table td:nth-child(3),
-.boards-table th:nth-child(3) {
-  width: 20%;
-  /* 작성자 */
-}
-
-.boards-table td:nth-child(4),
-.boards-table th:nth-child(4) {
-  width: 10%;
-  /* 조회수 */
+.loading {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
 }

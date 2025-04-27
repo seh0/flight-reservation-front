@@ -5,7 +5,7 @@ import "../style/Home.css";
 import QuickLink from "../components/QuickLink";
 import Hotplace from "../components/Hotplace";
 import SimpleAirportMap from "../components/SimpleAirportMap";
-import WeatherForecast from "../components/WeatherForcast";
+import WeatherForecast from "../components/WeatherForecast";
 import Boards from "../components/Boards";
 
 function Home() {

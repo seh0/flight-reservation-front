@@ -90,15 +90,6 @@ const WeatherForecast = () => {
           <div>❌ {error}</div>
         ) : !forecast ? null : (
           <>
-            <p>
-              {" "}
-              오늘:
-              <span
-                style={{ marginLeft: "10px", fontSize: "16px", color: "#666" }}
-              >
-                {getDateLabel(0)}
-              </span>
-            </p>
             <div className="weather-cards-wrapper">
               <div className="weather-cards">
                 {days.map((day) => (
