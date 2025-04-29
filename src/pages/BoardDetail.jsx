@@ -12,21 +12,11 @@ const BoardDetail = () => {
   useEffect(() => {
     const fetchBoard = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/boards/${boardId}`);
-        const currentBoard = response.data;
-
-        await axios.put(`http://localhost:5000/boards/${boardId}`, {
-          ...currentBoard,
-          views: currentBoard.views + 1,
-        });
-
-        setBoard({
-          ...currentBoard,
-          views: currentBoard.views + 1,
-        });
+        const response = await axios.get(`http://localhost:8090/api/boards/${boardId}`);
+        setBoard(response.data);
         setLoading(false);
       } catch (error) {
-        console.error("게시판 가져오기 실패:", error);
+        console.error("게시글 가져오기 실패:", error);
         setLoading(false);
       }
     };
@@ -52,11 +42,11 @@ const BoardDetail = () => {
       </div>
       <div className="board-detail-meta">
         <div className="board-detail-m">
-        <p><strong>작성자:</strong> {board.author}</p>
-        <p><strong>작성일:</strong> {new Date(board.created_at).toLocaleString()}</p>
-        <p><strong>조회수:</strong> {board.views}</p>
+          <p><strong>작성자:</strong> {board.author}</p>
+          <p><strong>작성일:</strong> {new Date(board.createdDate).toLocaleString()}</p>
         </div>
       </div>
+      <button className="edit-board-btn" onClick={() => navigate(`/board/edit/${boardId}`)}>수정하기</button>
       <button className="back-to-board-btn" onClick={() => navigate("/board")}>목록으로</button>
     </div>
   );

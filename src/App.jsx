@@ -21,6 +21,7 @@ import BoardWrite from "./pages/BoardWrite";
 import RplacePage from "./pages/RplacePage";
 import SplacePage from "./pages/SplacePage";
 import BoardDetail from "./pages/BoardDetail";
+import BoardEdit from "./pages/BoardEdit";
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route path="/board" element={<BoardPage />} />
           <Route path="/bwrite" element={<BoardWrite />} />
           <Route path="/board/:boardId" element={<BoardDetail />} />
+          <Route path="/board/edit/:boardId" element={<BoardEdit />} />
           <Route path="/rplace" element={<RplacePage />} />
           <Route path="/splace" element={<SplacePage />} />
 

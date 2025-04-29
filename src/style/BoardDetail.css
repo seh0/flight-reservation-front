@@ -40,7 +40,7 @@
   margin: 5px 0;
 }
 
-.board-detail-m{
+.board-detail-m {
   margin-left: auto;
 }
 
@@ -56,6 +56,25 @@
 }
 
 .back-to-board-btn {
+  background-color: gray;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  width: 100px;
+  text-align: center;
+  margin-left: auto;
+}
+
+.back-to-board-btn:hover {
+  background-color: #0056b3;
+}
+
+.edit-board-btn {
   background-color: #007bff;
   color: white;
   padding: 10px 20px;
@@ -65,10 +84,11 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   display: block;
-  width: 100%;
+  width: 100px;
   text-align: center;
+  margin-left: auto;
 }
 
-.back-to-board-btn:hover {
+.edit-board-btn:hover {
   background-color: #0056b3;
 }
